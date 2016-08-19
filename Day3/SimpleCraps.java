@@ -56,7 +56,8 @@ class SimpleCraps {
 		Scanner in =  new Scanner(System.in);
 		do {
 			simpleCraps.replayYes= false;
-		
+			simpleCraps.point = 0;
+			simpleCraps.count = 0;
 		simpleCraps.startRoll();
 		System.out.printf("Point: %d\n", simpleCraps.point);
 		System.out.printf("rolls: %d\n", simpleCraps.count);
