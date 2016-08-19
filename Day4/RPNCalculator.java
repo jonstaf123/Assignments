@@ -2,7 +2,7 @@ package ssa;
 import java.util.Stack;
 public class RPNCalculator {
 	
-	char[] problem = new char [] {'1','2','+','3','/'};
+	char[] problem = new char [] {'8', '2', '/', '9', '*', '1', '-', '7', '/'};
 	Stack<Integer> stk = new Stack<Integer>();
 	
 	public void doMath(){
@@ -26,7 +26,7 @@ public class RPNCalculator {
 					break;
 					
 				case '-':
-					stk.push(val1 - val2);
+					stk.push(val2 - val1);
 					break;
 					
 				case '*':
@@ -34,7 +34,7 @@ public class RPNCalculator {
 					break;
 					
 				case '/':
-					stk.push(val1 / val2);
+					stk.push(val2 / val1);
 					break;
 				}
 				
