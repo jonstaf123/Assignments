@@ -6,7 +6,7 @@ public class Mainline {
 		Account checking1 = new Account();
 		checking1.setDescription("My personal checking account");
 		checking1.balance = 800.00;
-		checking1.print();
+		System.out.println(checking1.print());
 		checking1.deposit(300.00);
 		checking1.print();
 		checking1.withdraw(699.99);
@@ -18,7 +18,7 @@ public class Mainline {
 		checking1.withdraw(200.00);
 		checking1.print(); // balance should be 350
 		//
-		Account savings1 = new Account("My personal savings account");
+		Account savings1 = new Account(10,"My personal savings account");
 		savings1.deposit(1000.00);
 		savings1.print();
 		savings1.deposit(400.00);
@@ -49,5 +49,3 @@ public class Mainline {
 
 	}
 }
-
-// int id - previously

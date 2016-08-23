@@ -31,8 +31,8 @@ class Account {
 	}
 
 	// returns the account info as a string
-	void print() {
-		System.out.println("Account: id is " + accountId + ", desc is " + description + ", balance is " + balance);
+	public String print() {
+		return "Account: id is " + accountId + ", desc is " + description + ", balance is $" + balance + "0";
 		  
 	}
 
