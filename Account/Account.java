@@ -1,10 +1,12 @@
 package ssa;
 
+import java.text.DecimalFormat;
+
 //A bank account
 class Account {
-	int accountId; // unique identifier for the account
+	private int accountId; // unique identifier for the account
 	String description; // a user defined name for the account
-	double balance; // the amount in the account.
+	private double balance; // the amount in the account.
 
 	public int getAccountId() {
 		return accountId;
@@ -32,13 +34,14 @@ class Account {
 
 	// returns the account info as a string
 	public String print() {
-		return "Account: id is " + accountId + ", desc is " + description + ", balance is $" + balance + "0";
+		return "Account: id is " + accountId + ", desc is " + description + ", balance is $" + balance;
 		  
 	}
 
 	// deposit into the account
 	double deposit(double amount) {
-		this.balance += amount;
+		this.balance += amount;DecimalFormat df = new DecimalFormat("#.00");
+		 
 		return this.balance;
 	}
 

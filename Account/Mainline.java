@@ -8,15 +8,15 @@ public class Mainline {
 		checking1.balance = 800.00;
 		System.out.println(checking1.print());
 		checking1.deposit(300.00);
-		checking1.print();
+		System.out.println(checking1.print());
 		checking1.withdraw(699.99);
-		checking1.print();
+		System.out.println(checking1.print());
 		checking1.deposit(149.99);
 		checking1.print();
 		checking1.withdraw(950.00); // this should fail!
-		checking1.print();
+		System.out.println(checking1.print());
 		checking1.withdraw(200.00);
-		checking1.print(); // balance should be 350
+		System.out.println(checking1.print()); // balance should be 350
 		//
 		Account savings1 = new Account(10,"My personal savings account");
 		savings1.deposit(1000.00);
