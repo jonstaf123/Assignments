@@ -20,25 +20,26 @@ public class Mainline {
 		myCheckings.subtractWithdraw();
 		System.out.println("Account ID: " + myCheckings.accountId + " Account description: " + myCheckings.description
 				+ "Account Balance: " + myCheckings.totalBalance);
-		myCheckings.getBalance();
+		//myCheckings.getBalance();
 		myCheckings.deposit2 = 100;
 		myCheckings.deposit1 = 0;
 		myCheckings.addDeposit();
 		System.out.println("Account ID: " + myCheckings.accountId + " Account description: " + myCheckings.description
 				+ "Account Balance: " + myCheckings.totalBalance);
 		
-		myCheckings.getBalance();
+		//myCheckings.getBalance();
 		myCheckings.withdraw2 = 300;
 		myCheckings.withdraw1 = 0;
-		myCheckings.subtractWithdraw();	
-		if (myCheckings.totalBalance > 0) {
+			
+		if (myCheckings.totalBalance < 0) {
+			myCheckings.subtractWithdraw();
 			System.out.println("Account ID: " + myCheckings.accountId + " Account description: " + myCheckings.description
 				+ "Account Balance: " + myCheckings.totalBalance);
 		}else {
 			System.out.println("Insufficient funds!");
 		}
 		
-		myCheckings.getBalance();
+		//myCheckings.getBalance();
 		myCheckings.withdraw3 = 200;
 		myCheckings.withdraw2 = 0;
 		myCheckings.withdraw1 = 0;
@@ -49,7 +50,7 @@ public class Mainline {
 		}else {
 		System.out.println("Insufficient funds!");
 		}
-	
+		System.out.println("");
 	
 	
 		Account mySavings = new Account();
