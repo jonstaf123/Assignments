@@ -66,7 +66,12 @@ public class Savings extends Account {
 			setMonths(months);
 			earnedInterest();
 			double newRate = this.getInterestRate() / 12 * this.months;
-			deposit(newRate * this.getBalance());
+			if (this.getInterestRate() < 0) {
+				System.out.println("Invalid interest rate");
+			}else{
+				deposit(newRate * this.getBalance());
+			}
+			
 		}
 		return this.getBalance();
 	}
