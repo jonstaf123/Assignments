@@ -59,7 +59,7 @@ public class Mainline {
 				checking1.getBalance() + checking2.getBalance() + savings3.getBalance());
 		Savings savingsAccount1 = new Savings();
 		savingsAccount1.deposit(500);
-		savingsAccount1.calcDepositInterest(4);
+		savingsAccount1.calcDepositInterest(-4);
 		System.out.println(savingsAccount1.print());
 		
 	}

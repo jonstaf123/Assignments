@@ -5,8 +5,12 @@ public class Savings extends Account {
 	private double interestRate;
 	private int months;
 	private double earnedInterest;
+	private double minBalance;
 
 	public String print() {
+		if (earnedInterest <= 0) {
+			return super.print() + " no interest earned "; 
+		}
 		return super.print() + " and earned interest amount is $" + earnedInterest;
 	}
 
@@ -35,13 +39,17 @@ public class Savings extends Account {
 	}
 
 	public double earnedInterest() {
+
 		double interestAmount = this.getInterestRate() / 12 * months * this.getBalance();
 		this.setEarnedInterest(interestAmount);
+		// returns dollar amount of interest added to balance
 		return earnedInterest;
 	}
 
 	public double calcDepositInterest(int months) {
-		if (this.interestRate <= 0) {
+		if (this.getBalance() < minBalance) {
+			System.out.println("Below minimum Balance");
+		} else if (this.interestRate <= 0) {
 			System.out.println("Invalid Interest rate");
 		} else {
 			setMonths(months);
@@ -56,5 +64,6 @@ public class Savings extends Account {
 		interestRate = .015;
 		months = 12;
 		earnedInterest = 0;
+		minBalance = 1;
 	}
 }
