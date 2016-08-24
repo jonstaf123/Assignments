@@ -1,13 +1,15 @@
 package ssa;
 
-
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 //A bank account
 class Account {
 	int id; // unique identifier for the account
 	String description; // a user defined name for the account
 	private double balance; // the amount in the account.
-
+	//BigDecimal(String.valueOf(this.balance)).setScale(2, BigDecimal.ROUND_FLOOR);
 	public int getId() {
 		return id;
 	}
@@ -35,7 +37,12 @@ class Account {
 
 	// returns the account info as a string
 	public String print() {
-		return "Account: id is " + id + ", desc is " + description + ", balance is $" + balance;
+		 DecimalFormat df = new DecimalFormat("#.##");
+
+		    df.setRoundingMode(RoundingMode.FLOOR);
+
+		    double result = new Double(df.format(this.getBalance()));
+		return "Account: id is " + id + ", desc is " + description + ", balance is $" + result;
 
 	}
 

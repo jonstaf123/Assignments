@@ -1,5 +1,8 @@
 package ssa;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Savings extends Account {
 
 	private double interestRate;
@@ -10,8 +13,15 @@ public class Savings extends Account {
 	public String print() {
 		if (earnedInterest <= 0) {
 			return super.print() + " no interest earned "; 
+		} else {
+			DecimalFormat df = new DecimalFormat("#.##");
+
+		    df.setRoundingMode(RoundingMode.FLOOR);
+
+		    double resultInterest = new Double(df.format(this.getEarnedInterest()));
+			return super.print() + " and earned interest amount is $" + resultInterest;
 		}
-		return super.print() + " and earned interest amount is $" + earnedInterest;
+		
 	}
 
 	public double getEarnedInterest() {
