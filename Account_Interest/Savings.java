@@ -14,6 +14,7 @@ public class Savings extends Account {
 		if (earnedInterest <= 0) {
 			return super.print() + " no interest earned "; 
 		} else {
+			// to o.oo
 			DecimalFormat df = new DecimalFormat("#.##");
 
 		    df.setRoundingMode(RoundingMode.FLOOR);
@@ -59,8 +60,8 @@ public class Savings extends Account {
 	public double calcDepositInterest(int months) {
 		if (this.getBalance() < minBalance) {
 			System.out.println("Below minimum Balance");
-		} else if (this.interestRate <= 0) {
-			System.out.println("Invalid Interest rate");
+		} else if (months <= 0) {
+			System.out.println("Invalid month entry");
 		} else {
 			setMonths(months);
 			earnedInterest();
