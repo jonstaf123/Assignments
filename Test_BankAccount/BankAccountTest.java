@@ -12,7 +12,11 @@ public class BankAccountTest {
 	}
 
 	@Test
-	
+	public void testSetMonths() {
+		Savings savings = new Savings();
+			savings.setMonths(3);
+		assertEquals(3, savings.getMonths(),0);	
+	}
 	public void TestCheckwithdraw() {
 		Checking checking = new Checking();
 				checking.setBalance(100);
@@ -34,6 +38,7 @@ public class BankAccountTest {
 		", balance is $" + savings.getBalance() +
 		" and earned interest amount is $" + savings.getEarnedInterest(), savings.print());
 	}
+	
 	public void TestSetEarnedInterest() {
 		Savings savings = new Savings();
 		savings.setEarnedInterest(1.5);
@@ -70,10 +75,15 @@ public class BankAccountTest {
 		account.setBalance(100);		
 		assertEquals(0, account.withdraw(100),0);
 	}
-	public void testGetBalance() {
+	public void testSetBalance() {
 		Account account = new Account();
-		
-		assertEquals(0, account.getBalance(),0);
+		account.setBalance(100);
+		assertEquals(100, account.getBalance(),0);
+	}
+	public void testSetId() {
+		Account account = new Account();
+			account.setId(3);
+		assertEquals(3, account.getId());	
 	}
 	public void testDeposit() {
 		Account account = new Account();
