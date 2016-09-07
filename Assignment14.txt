@@ -1,0 +1,96 @@
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int(11)      | NO   | PRI | NULL    |       |
+| first_name | varchar(30)  | NO   |     | NULL    |       |
+| last_name  | varchar(30)  | NO   |     | NULL    |       |
+| start_date | date         | NO   |     | NULL    |       |
+| gpa        | decimal(5,1) | YES  |     | NULL    |       |
+| sat        | int(11)      | YES  |     | NULL    |       |
+| major_id   | int(11)      | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | NO   | PRI | NULL    |       |
+| sat_min | int(11)     | NO   |     | NULL    |       |
+| name    | varchar(50) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| id                  | int(11)     | YES  |     | NULL    |       |
+| first_name          | varchar(30) | YES  |     | NULL    |       |
+| last_name           | varchar(30) | YES  |     | NULL    |       |
+| years_of_experience | int(11)     | YES  |     | NULL    |       |
+| tenured             | tinyint(4)  | YES  |     | NULL    |       |
+| instructor_id       | int(11)     | YES  | MUL | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| id            | int(11)     | NO   | PRI | NULL    |       |
+| name          | varchar(50) | NO   |     | NULL    |       |
+| instructor_id | int(11)     | NO   |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
++------+------------+-----------+---------------------+---------+---------------
++
+| id   | first_name | last_name | years_of_experience | tenured | instructor_id
+|
++------+------------+-----------+---------------------+---------+---------------
++
+|  100 | Ben        | Jones     |                   5 |       0 |          NULL
+|
+|  200 | Mike       | Brown     |                   7 |       1 |          NULL
+|
+|  200 | Justin     | Williams  |                  12 |       1 |          NULL
+|
+|  400 | Ryan       | Collins   |                   4 |       0 |          NULL
+|
+|  500 | Adam       | Micheals  |                   6 |       0 |          NULL
+|
+|  600 | Karen      | Admas     |                  11 |       1 |          NULL
+|
++------+------------+-----------+---------------------+---------+---------------
++-----+----------------------+---------------+
+| id  | name                 | instructor_id |
++-----+----------------------+---------------+
+| 100 | English 101          |             0 |
+| 110 | English 102          |             0 |
+| 120 | English 103          |             0 |
+| 130 | English 201          |             0 |
+| 140 | English 202          |             0 |
+| 150 | English 203          |             0 |
+| 160 | English 301          |             0 |
+| 170 | English 302          |             0 |
+| 180 | English 303          |             0 |
+| 190 | Math 201             |             0 |
+| 200 | Math 202             |             0 |
+| 210 | Math 203             |             0 |
+| 220 | Math 204             |             0 |
+| 230 | Math 301             |             0 |
+| 240 | Math 302             |             0 |
+| 250 | Math 303             |             0 |
+| 260 | Math 304             |             0 |
+| 270 | History 101          |             0 |
+| 280 | History 201          |             0 |
+| 290 | History 301          |             0 |
+| 300 | Psychology 101       |             0 |
+| 310 | Psychology 102       |             0 |
+| 320 | Computer Science 311 |             0 |
+| 330 | Computer Science 312 |             0 |
+| 340 | Computer Science 313 |             0 |
+| 350 | Computer Science 441 |             0 |
+| 360 | Computer Science 442 |             0 |
+| 370 | Computer Science 443 |             0 |
+| 380 | Education 221        |             0 |
+| 390 | Education 222        |             0 |
+| 400 | Education 223        |             0 |
+| 410 | Education 351        |             0 |
+| 420 | Education 352        |             0 |
+| 430 | Education 353        |             0 |
+| 440 | Psychology 231       |             0 |
+| 450 | Psychology 232       |             0 |
++-----+----------------------+---------------+
