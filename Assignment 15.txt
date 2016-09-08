@@ -20,8 +20,9 @@ mysql> explain class;
 | id            | int(11)     | NO   | PRI | NULL    |       |
 | name          | varchar(50) | NO   |     | NULL    |       |
 | instructor_id | int(11)     | YES  | MUL | NULL    |       |
+| assignment_id | int(11)     | YES  | MUL | NULL    |       |
 +---------------+-------------+------+-----+---------+-------+
-3 rows in set (0.00 sec)
+4 rows in set (0.00 sec)
 
 mysql> explain instructor;
 +---------------------+-------------+------+-----+---------+-------+
@@ -82,46 +83,46 @@ mysql> explain major_class_relationship;
 Select alls:
 
 mysql> select * from class;
-+-----+----------------------+---------------+
-| id  | name                 | instructor_id |
-+-----+----------------------+---------------+
-| 100 | English 101          |           200 |
-| 110 | English 102          |           200 |
-| 120 | English 103          |           200 |
-| 130 | English 201          |           200 |
-| 140 | English 202          |           200 |
-| 150 | English 203          |           200 |
-| 160 | English 301          |           200 |
-| 170 | English 302          |           200 |
-| 180 | English 303          |           200 |
-| 190 | Math 201             |           400 |
-| 200 | Math 202             |           400 |
-| 210 | Math 203             |           400 |
-| 220 | Math 204             |           400 |
-| 230 | Math 301             |           400 |
-| 240 | Math 302             |           400 |
-| 250 | Math 303             |           400 |
-| 260 | Math 304             |           400 |
-| 270 | History 101          |           500 |
-| 280 | History 201          |           500 |
-| 290 | History 301          |           500 |
-| 300 | Psychology 101       |           600 |
-| 310 | Psychology 102       |           600 |
-| 320 | Computer Science 311 |           700 |
-| 330 | Computer Science 312 |           700 |
-| 340 | Computer Science 313 |           700 |
-| 350 | Computer Science 441 |           700 |
-| 360 | Computer Science 442 |           700 |
-| 370 | Computer Science 443 |           700 |
-| 380 | Education 221        |           800 |
-| 390 | Education 222        |           800 |
-| 400 | Education 223        |           800 |
-| 410 | Education 351        |           800 |
-| 420 | Education 352        |           800 |
-| 430 | Education 353        |           800 |
-| 440 | Psychology 231       |           600 |
-| 450 | Psychology 232       |           600 |
-+-----+----------------------+---------------+
++-----+----------------------+---------------+---------------+
+| id  | name                 | instructor_id | assignment_id |
++-----+----------------------+---------------+---------------+
+| 100 | English 101          |           200 |             1 |
+| 110 | English 102          |           200 |             1 |
+| 120 | English 103          |           200 |             1 |
+| 130 | English 201          |           200 |             1 |
+| 140 | English 202          |           200 |             1 |
+| 150 | English 203          |           200 |             1 |
+| 160 | English 301          |           200 |             1 |
+| 170 | English 302          |           200 |             1 |
+| 180 | English 303          |           200 |             1 |
+| 190 | Math 201             |           400 |             2 |
+| 200 | Math 202             |           400 |             2 |
+| 210 | Math 203             |           400 |             2 |
+| 220 | Math 204             |           400 |             2 |
+| 230 | Math 301             |           400 |             2 |
+| 240 | Math 302             |           400 |             2 |
+| 250 | Math 303             |           400 |             2 |
+| 260 | Math 304             |           400 |             2 |
+| 270 | History 101          |           500 |             3 |
+| 280 | History 201          |           500 |             3 |
+| 290 | History 301          |           500 |             3 |
+| 300 | Psychology 101       |           600 |             4 |
+| 310 | Psychology 102       |           600 |             4 |
+| 320 | Computer Science 311 |           700 |             5 |
+| 330 | Computer Science 312 |           700 |             5 |
+| 340 | Computer Science 313 |           700 |             5 |
+| 350 | Computer Science 441 |           700 |             5 |
+| 360 | Computer Science 442 |           700 |             5 |
+| 370 | Computer Science 443 |           700 |             5 |
+| 380 | Education 221        |           800 |             6 |
+| 390 | Education 222        |           800 |             6 |
+| 400 | Education 223        |           800 |             6 |
+| 410 | Education 351        |           800 |             6 |
+| 420 | Education 352        |           800 |             6 |
+| 430 | Education 353        |           800 |             6 |
+| 440 | Psychology 231       |           600 |             4 |
+| 450 | Psychology 232       |           600 |             4 |
++-----+----------------------+---------------+---------------+
 36 rows in set (0.00 sec)
 
 mysql> select * from student;
@@ -193,7 +194,6 @@ mysql> select * from major_class_relationship;
 +----+----------+----------+
 5 rows in set (0.00 sec)
 
-
 mysql> select * from assignment;
 +----+------------+----------------+-------+
 | id | student_id | assignment_nbr | grade |
@@ -203,5 +203,6 @@ mysql> select * from assignment;
 |  3 |        120 |              1 | B     |
 |  4 |        130 |              1 | B     |
 |  5 |        140 |              1 | A     |
+|  6 |        150 |              2 | D     |
 +----+------------+----------------+-------+
-5 rows in set (0.00 sec)
+6 rows in set (0.00 sec)
