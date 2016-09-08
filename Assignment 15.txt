@@ -1,0 +1,186 @@
+Assignment 15
+
+Explains:
+
+
+mysql> explain class;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| id            | int(11)     | NO   | PRI | NULL    |       |
+| name          | varchar(50) | NO   |     | NULL    |       |
+| instructor_id | int(11)     | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> explain instructor;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| id                  | int(11)     | NO   | PRI | NULL    |       |
+| first_name          | varchar(50) | YES  |     | NULL    |       |
+| last_name           | varchar(50) | YES  |     | NULL    |       |
+| years_of_experience | varchar(50) | YES  |     | NULL    |       |
+| tenured             | tinyint(4)  | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> explain major;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | NO   | PRI | NULL    |       |
+| sat_min | int(11)     | NO   |     | NULL    |       |
+| name    | varchar(50) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> explain student_class_relationship;
++------------+---------+------+-----+---------+-------+
+| Field      | Type    | Null | Key | Default | Extra |
++------------+---------+------+-----+---------+-------+
+| id         | int(11) | NO   | PRI | NULL    |       |
+| student_id | int(11) | NO   | MUL | NULL    |       |
+| class_id   | int(11) | NO   | MUL | NULL    |       |
++------------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> explain student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int(11)      | NO   | PRI | NULL    |       |
+| first_name | varchar(30)  | NO   |     | NULL    |       |
+| last_name  | varchar(30)  | NO   |     | NULL    |       |
+| gpa        | decimal(5,1) | YES  |     | NULL    |       |
+| sat        | int(11)      | YES  |     | NULL    |       |
+| major_id   | int(11)      | YES  | MUL | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> explain major_class_relationship;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| id       | int(11) | NO   | PRI | NULL    |       |
+| major_id | int(11) | NO   | MUL | NULL    |       |
+| class_id | int(11) | NO   | MUL | NULL    |       |
++----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+Select alls:
+
+mysql> select * from class;
++-----+----------------------+---------------+
+| id  | name                 | instructor_id |
++-----+----------------------+---------------+
+| 100 | English 101          |           200 |
+| 110 | English 102          |           200 |
+| 120 | English 103          |           200 |
+| 130 | English 201          |           200 |
+| 140 | English 202          |           200 |
+| 150 | English 203          |           200 |
+| 160 | English 301          |           200 |
+| 170 | English 302          |           200 |
+| 180 | English 303          |           200 |
+| 190 | Math 201             |           400 |
+| 200 | Math 202             |           400 |
+| 210 | Math 203             |           400 |
+| 220 | Math 204             |           400 |
+| 230 | Math 301             |           400 |
+| 240 | Math 302             |           400 |
+| 250 | Math 303             |           400 |
+| 260 | Math 304             |           400 |
+| 270 | History 101          |           500 |
+| 280 | History 201          |           500 |
+| 290 | History 301          |           500 |
+| 300 | Psychology 101       |           600 |
+| 310 | Psychology 102       |           600 |
+| 320 | Computer Science 311 |           700 |
+| 330 | Computer Science 312 |           700 |
+| 340 | Computer Science 313 |           700 |
+| 350 | Computer Science 441 |           700 |
+| 360 | Computer Science 442 |           700 |
+| 370 | Computer Science 443 |           700 |
+| 380 | Education 221        |           800 |
+| 390 | Education 222        |           800 |
+| 400 | Education 223        |           800 |
+| 410 | Education 351        |           800 |
+| 420 | Education 352        |           800 |
+| 430 | Education 353        |           800 |
+| 440 | Psychology 231       |           600 |
+| 450 | Psychology 232       |           600 |
++-----+----------------------+---------------+
+36 rows in set (0.00 sec)
+
+mysql> select * from student;
++-----+------------+-----------+------+------+----------+
+| id  | first_name | last_name | gpa  | sat  | major_id |
++-----+------------+-----------+------+------+----------+
+| 100 | Eric       | Ephram    |  3.2 | 1250 |        1 |
+| 110 | Greg       | Gould     |  4.0 | 1110 |        2 |
+| 120 | Adam       | Ant       |  4.0 | 1130 |        3 |
+| 130 | Howard     | Hess      |  3.5 | 1310 |        5 |
+| 140 | Charles    | Caldwell  |  3.8 | 1180 |        7 |
+| 150 | James      | Joyce     |  3.2 | 1210 |        1 |
+| 160 | Doug       | Dumas     |  3.7 | 1190 |        2 |
+| 170 | Kevin      | Kraft     |  2.9 | 1000 |        7 |
+| 180 | Frank      | Fountain  |  3.9 | 1400 |        4 |
+| 190 | Brian      | Biggs     |  3.1 | 1440 |        6 |
+| 500 | jim        | jones     |  3.7 | NULL |     NULL |
++-----+------------+-----------+------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select * from instructor;
++-----+------------+-----------+---------------------+---------+
+| id  | first_name | last_name | years_of_experience | tenured |
++-----+------------+-----------+---------------------+---------+
+| 200 | Mike       | Brown     | 7                   |       1 |
+| 400 | Ryan       | Collins   | 4                   |       0 |
+| 500 | Adam       | Micheals  | 6                   |       0 |
+| 600 | Karen      | Admas     | 11                  |       1 |
+| 700 | John       | Spencer   | 20                  |       0 |
+| 800 | Thomas     | Cruz      | 9                   |       0 |
++-----+------------+-----------+---------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select * from major;
++----+---------+------------------+
+| id | sat_min | name             |
++----+---------+------------------+
+|  1 |     800 | General_Business |
+|  2 |    1000 | Accounting       |
+|  3 |    1300 | Finance          |
+|  4 |    1300 | math             |
+|  5 |    1350 | Engineering      |
+|  6 |     900 | Education        |
+|  7 |     500 | General_Studies  |
++----+---------+------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student_class_relationship;
++----+------------+----------+
+| id | student_id | class_id |
++----+------------+----------+
+|  1 |        100 |      200 |
+|  2 |        110 |      210 |
+|  3 |        120 |      240 |
+|  4 |        130 |      440 |
+|  5 |        140 |      330 |
++----+------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from major_class_relationship;
++----+----------+----------+
+| id | major_id | class_id |
++----+----------+----------+
+|  1 |        4 |      200 |
+|  2 |        4 |      210 |
+|  3 |        4 |      240 |
+|  4 |        7 |      440 |
+|  5 |        7 |      330 |
++----+----------+----------+
+5 rows in set (0.00 sec)
+
+
