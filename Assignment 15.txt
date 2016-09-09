@@ -144,16 +144,16 @@ mysql> select * from student;
 11 rows in set (0.00 sec)
 
 mysql> select * from instructor;
-+-----+------------+-----------+---------------------+---------+
-| id  | first_name | last_name | years_of_experience | tenured |
-+-----+------------+-----------+---------------------+---------+
-| 200 | Mike       | Brown     | 7                   |       1 |
-| 400 | Ryan       | Collins   | 4                   |       0 |
-| 500 | Adam       | Micheals  | 6                   |       0 |
-| 600 | Karen      | Admas     | 11                  |       1 |
-| 700 | John       | Spencer   | 20                  |       0 |
-| 800 | Thomas     | Cruz      | 9                   |       0 |
-+-----+------------+-----------+---------------------+---------+
++-----+------------+-----------+---------------------+---------+----------+
+| id  | first_name | last_name | years_of_experience | tenured | major_id |
++-----+------------+-----------+---------------------+---------+----------+
+| 200 | Mike       | Brown     | 7                   |       1 |        1 |
+| 400 | Ryan       | Collins   | 4                   |       0 |        2 |
+| 500 | Adam       | Micheals  | 6                   |       0 |        3 |
+| 600 | Karen      | Admas     | 11                  |       1 |        4 |
+| 700 | John       | Spencer   | 20                  |       0 |        5 |
+| 800 | Thomas     | Cruz      | 9                   |       0 |        6 |
++-----+------------+-----------+---------------------+---------+----------+
 6 rows in set (0.00 sec)
 
 mysql> select * from major;
