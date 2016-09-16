@@ -8,8 +8,13 @@ public class Enroll {
 	public static ResultSet rs = null;
 	
 	public static void main(String[] args) throws Exception {
-		enrollStudent();
-		updateStudent();
+		enrollStudent(3.0, 1200, "Adam", "Zapel");
+		enrollStudent(2.5, 500, "Graham", "Krakir");
+		enrollStudent(3.0, 800, "Ella", "Vader");
+		enrollStudent(3.3, 1350, "Stanley", "kupp");
+		enrollStudent(3.0, 950, "Lou", "Zar");
+		assignMajor("Zapel", "Finance");
+		assignMajor("Vader", "Accounting");
 		fetchData();
 		
 	}
@@ -31,48 +36,16 @@ public class Enroll {
 		if (rs != null)
 			rs.close();
 	}
-	private static void enrollStudent() throws SQLException {
+	private static void enrollStudent(double gpa,int sat,String fname, String lname) throws SQLException {
 		try {
 			makeConnection();
-			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name,major_id) values(?,?,?,?,?)");
-			stmt.setDouble(1, 3.0);
-			stmt.setInt(2, 1200);
-			stmt.setString(3, "Adam");
-			stmt.setString(4, "Zapel");
-			stmt.setInt(5, 3);
+			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name) values(?,?,?,?)");
+			stmt.setDouble(1, gpa);
+			stmt.setInt(2, sat);
+			stmt.setString(3, fname);
+			stmt.setString(4, lname);
 			stmt.executeUpdate();
 			
-			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name,major_id) values(?,?,?,?,?)");
-			stmt.setDouble(1, 2.5);
-			stmt.setInt(2, 500);
-			stmt.setString(3, "Graham");
-			stmt.setString(4, "Krakir");
-			stmt.setInt(5, 7);
-			stmt.executeUpdate();
-			
-			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name,major_id) values(?,?,?,?,?)");
-			stmt.setDouble(1, 3.0);
-			stmt.setInt(2, 800);
-			stmt.setString(3, "Ella");
-			stmt.setString(4, "Vader");
-			stmt.setInt(5, 2);
-			stmt.executeUpdate();
-			
-			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name,major_id) values(?,?,?,?,?)");
-			stmt.setDouble(1, 3.3);
-			stmt.setInt(2, 1350);
-			stmt.setString(3, "Stanley");
-			stmt.setString(4, "Kupp");
-			stmt.setInt(5, 5);
-			stmt.executeUpdate();
-			
-			stmt = myConn.prepareStatement("insert student(gpa,sat,first_name,last_name,major_id) values(?,?,?,?,?)");
-			stmt.setDouble(1, 3.0);
-			stmt.setInt(2, 950);
-			stmt.setString(3, "Lou");
-			stmt.setString(4, "Zar");
-			stmt.setInt(5, 6);
-			stmt.executeUpdate();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -81,34 +54,26 @@ public class Enroll {
 
 		}
 	}
-	private static void updateStudent() throws SQLException {
+	private static void assignMajor(String studentLastName, String Major) throws SQLException {
 
 		try {
 			makeConnection();
-			stmt = myConn.prepareStatement("update student, major set Major_id= ? where student.id = ? and sat >= req_sat");
-			stmt.setInt(1, 3);
-			stmt.setInt(2, 1);
+			stmt = myConn.prepareStatement("select * from major, student where description = ?");
+			stmt.setString(1, Major);
+			rs =stmt.executeQuery();
+			while (rs.next()) {
+				int majorID =rs.getInt("id");
+				int reqSat= rs.getInt("req_sat");
+				int studentSat = rs.getInt("sat");
+				if (studentSat >= reqSat) {
+			stmt =myConn.prepareStatement("update student set major_id = ? where last_name = ?");
+			stmt.setString(2, studentLastName);
+			stmt.setInt(1, majorID);
 			stmt.executeUpdate();
+				} else throw new Exception("does not meet SAT requirement" );
 			
-			stmt = myConn.prepareStatement("update student, major set Major_id= ? where student.id = ? and sat >= req_sat");
-			stmt.setInt(1, 7);
-			stmt.setInt(2, 2);
-			stmt.executeUpdate();
 			
-			stmt = myConn.prepareStatement("update student, major set Major_id= ? where student.id = ? and sat >= req_sat");
-			stmt.setInt(1, 2);
-			stmt.setInt(2, 3);
-			stmt.executeUpdate();
-
-			stmt = myConn.prepareStatement("update student, major set Major_id= ? where student.id = ? and sat >= req_sat");
-			stmt.setInt(1, 5);
-			stmt.setInt(2, 4);
-			stmt.executeUpdate();
-			
-			stmt = myConn.prepareStatement("update student, major set Major_id= ? where student.id = ? and sat >= req_sat");
-			stmt.setInt(1, 6);
-			stmt.setInt(2, 5);
-			stmt.executeUpdate();
+			}
 
 
 		} catch (Exception ex) {
