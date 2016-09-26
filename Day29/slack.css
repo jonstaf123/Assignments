@@ -1,0 +1,22 @@
+body { 
+ 	color: #595441; 
+ 	margin:0px; 
+ 	width: auto; 
+ 	background-color:transparent; 
+ } 
+div {
+	width: 49%;
+	float: 1;
+	height: auto;
+	display: inline-block;
+	text-align: center;
+	font: 20px arial, sans-serif;
+
+}
+h1 {
+	text-align: center;
+}
+#msg-box {
+	width: 200px;
+	height: 100px;
+}
