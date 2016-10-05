@@ -1,0 +1,62 @@
+body {
+	font: normal normal normal 12px/14.4px; 
+	border:0; margin:0; padding:0;
+}
+div#allpage {
+	margin: 10px;
+	border: 1px solid silver;
+	background-color:hsl(120,100%,95%);
+}
+div#header {
+	border: 1px solid silver;
+	background-color: lightgreen;
+}
+div#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+div#menu li {
+    float: left;	
+}
+div#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+div#menu li a:hover {
+    background-color: #111111;
+}
+div#content {
+	width:74%;
+	display:inline-block;
+}
+div h1 {
+	font-family: Geneva, Tahoma, Verdana, sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	text-align: center;
+}
+div table {
+	margin: 30px;
+	border: 1px outset silver;
+	
+}
+table tbody tr:hover {
+background-color: lightblue;
+font-weight: bold;
+display:table-row;
+}
+table thead tr {
+background-color: grey;
+text-decoration: underline;
+font-weight: bold;
+font-size: 16px;
+}

@@ -25,11 +25,12 @@
 			<th>Last Name</th>
 			<th>GPA</th>
 			<th>SAT</th>
+			<th>Major ID</th>
 		</tr>
 		</thead>
-		<tr ng-repeat="student in ctrl.students" ng-hide="showRow">
-		<td>{{student.firstname}}</td><td>{{student.lastname}}</td><td>{{student.gpa}}</td><td>{{student.sat}}</td>
-		<td><button ng-click="showRow=true" class="btn btn-info">Hide</button></td>
+		<tr ng-repeat="student in ctrl.students" ng-hide="hideRow">
+		<td>{{student.data.fname}}</td><td>{{students.lname}}</td><td>{{student.data.gpa}}</td><td>{{student.data.sat}}</td><td>{{student.data.majorId}}</td>
+		<td><button ng-click="hideRow=true" class="btn btn-info">Hide</button></td>
 	</tr>
 	</table>
 	<button ng-click="ctrl.reload()" class="btn btn-info btn-block">Reload</button>
